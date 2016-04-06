@@ -9,113 +9,81 @@ class Password
 end
 
 ROOT = PhraseType.new(<<-__ROOT__
-[five_word_verb_phrase]
+[two_word_animate_noun] [verb.singular] [two_word_noun]
+[two_word_animate_noun_pl] [verb] [two_word_noun]
+[three_word_animate_noun] [verb.singular] [noun]
+[three_word_animate_noun.plural] [verb] [noun]
+[animate] [verb.singular] [three_word_noun]
+[animate.plural] [verb] [three_word_noun]
+[three_word_phrase]; [who_cares]
 __ROOT__
 )
-#[two_word_animate_noun_phrase] [verb.singular] [noun] [object]
-#[adjective] [subject] [verb.singular] [adjective] [object]
-#[noun] [subject] [verb.singular] [adjective] [object]
-#[adjective] [subject] [verb.singular] [noun] [object]
-#[three_word_verb_phrase], [animate] [quotative]
-#[three_word_verb_phrase], [quotative] [animate]
-#[animate] [quotative] [three_word_verb_phrase]
-#[animate] [quotative] [subject] still [adjective]
-#[subject], [subject] [verb] [adjective] [object]
 
-THREE_WORD_VERB_PHRASE = PhraseType.new(<<-__
-[subject] [verb.past] [object]
+THREE_WORD_PHRASE = PhraseType.new(<<-__
+[noun] [verb.singular] [one_word_object]
+[noun.plural] [verb] [one_word_object]
 __
 )
 
-TWO_WORD_ANIMATE_NOUN_PHRASE = PhraseType.new(<<-__
+ONE_WORD_OBJECT = PhraseType.new(<<-__
+[noun]
+[noun.plural]
+__
+)
+
+WHO_CARES = PhraseType.new(<<-__
+[last_name] [status]
+[noun] [status]
+__
+)
+
+TWO_WORD_ANIMATE_NOUN = PhraseType.new(<<-__
 [noun] [animate]
 [adjective] [animate]
+[first_name] [last_name]
 __
 )
 
-TWO_WORD_NOUN_PHRASE = PhraseType.new(<<-__
-[two_word_animate_noun_phrase]
+TWO_WORD_ANIMATE_NOUN_PL = PhraseType.new(<<-__
+[noun] [animate.plural]
+[adjective] [animate.plural]
+__
+)
+
+THREE_WORD_ANIMATE_NOUN = PhraseType.new(<<-__
+[adjective] [noun] [animate]
+__
+)
+
+THREE_WORD_NOUN = PhraseType.new(<<-__
+[adjective] [noun] [noun]
+[loose_adjective] [tight_adjective] [noun]
+__
+)
+
+TWO_WORD_NOUN = PhraseType.new(<<-__
+[noun] [noun]
 [adjective] [noun]
+[last_name] [abstract]
 __
 )
 
-N2 = PhraseType.new(<<-__
-[n2_2]
-[n2_3]
-[n2_4]
+NOUN = PhraseType.new(<<-__
+[animate]
+[inanimate]
+[abstract]
 __
 )
 
-N3 = PhraseType.new(<<-__
-[n3_4]
-[n2_2] [n_3]
+ADJECTIVE = PhraseType.new(<<-__
+[loose_adjective]
+[tight_adjective]
 __
 )
 
-# two-word noun phrase with valence 2
-N2_2 = PhraseType.new(<<-__
-[n_1] [n_2]
-[n_3]'s [n_2]
-__
-)
-
-# two-word noun phrase with valence 3
-N2_3 = PhraseType.new(<<-__
-[n_1] [n_3]
-[n_2] [n_3]
-__
-)
-
-# two-word noun phrase with valence 4
-N2_4 = PhraseType.new(<<-__
-[n_1] [n_4]
-[n_2] [n_4]
-[n_3] [n_4]
-[n_3]'s [n_4]
-__
-)
-
-N2_2_3 = PhraseType.new(<<-__
-[n2_2]
-[n2_3]
-__
-)
-
-N2_2_4 = PhraseType.new(<<-__
-[n2_2]
-[n2_3]
-[n2_4]
-__
-)
-
-N2_3_4 = PhraseType.new(<<-__
-[n2_3]
-[n2_4]
-__
-)
-
-N3_3 = PhraseType.new(<<-__
-[n2_2] [n_3]
-__
-)
-
-N3_4 = PhraseType.new(<<-__
-[n2_3] [n_4]
-[n2_2] [n_4]
-__
-)
-
-N = PhraseType.new(<<-__
-[n_2]
-[n_3]
-[n_4]
-__
-)
-
-# noun, valence 1
-N_1 = PhraseType.new(<<-__
-satanist
+TIGHT_ADJECTIVE = PhraseType.new(<<-__
 Christian
+Satanist
 Jewish
 pagan
 Muslim
@@ -125,6 +93,23 @@ Greek
 white
 black
 hispanic
+New York
+Chicago
+L.A.
+San Fran
+Canadian
+American
+European
+Eurozone
+Czech
+German
+French
+Chinese
+Romanian
+__
+)
+
+LOOSE_ADJECTIVE = PhraseType.new(<<-__
 beard
 bearded
 classist
@@ -173,53 +158,52 @@ bad
 bespoke
 nervous
 tight
-Chicago
-New York
-San Fran
-L.A.
-Canadian
-American
-Euro
-Czech
-British
-German
-French
-Chinese
 sustainable
+banned
 eco-friendly
 green
 open-source
 open
 bohemian
+foreign
 homeless
 viral
 convicted
 accused
 doomed
+obsolete
+ancient
 __
 )
 
-N_2 = PhraseType.new(<<-__
+INANIMATE = PhraseType.new(<<-__
 plane
 software
 egg
 dope
 cheese
-lawyer
 pork
 toast
 beer
-head
 rhyme
+fund
 skeleton
 bomb
 steak
 phone
 cello
+chair
+bourbon
+book
 __
 )
 
-N_3 = PhraseType.new(<<-__
+ANIMATE = PhraseType.new(<<-__
+complainant
+plaintiff
+jury
+head
+lawyer
 virus
 senator
 duck
@@ -232,12 +216,30 @@ manager
 actor
 exec
 marketer
+aid
 bassist
 victim
+prince
+princess
+king
+queen
+dog
+cat
+cow
+wolf
+CEO
 __
 )
 
-N_4 = PhraseType.new(<<-__
+ABSTRACT = PhraseType.new(<<-__
+court
+trial
+law
+religion
+plague
+innuendo
+match
+epidemic
 scam
 event
 threat
@@ -248,6 +250,8 @@ suit
 head
 float
 toast
+party
+game
 streak
 trance
 circus
@@ -256,37 +260,63 @@ hiatus
 debate
 rumor
 affair
-hedge fund
 stock
 plan
 alliance
 debacle
 parade
 gift
+game
 __
 )
 
-FIVE_WORD_VERB_PHRASE = PhraseType.new(<<-__
-[n2] rocks [n2_4]
-[n3] rocks [n_4]
-[n] rocks [n3_4]
-[n2_3] talks down [n2]
-[n2_3] talks up [n2]
-[n2_3] defuses [n2_4]
-[n2_3] outs [n2_3]
-[n2_3] bankrolls [n2_3_4]
-[n2_3] disavows [n2]
-[n2_3] crashes [n2]
-[n2_3] kidnaps [n2_2_3]
-[n2_3] steals [n2_2]
-[n2_3] witnesses [n2_2_4]
-[n2_3] watches [n2_2_4]
-[n2_3] ditches [n2_2_4]
-[n2_3] rescues [n2_2_3]
-[n2_3_4] sparks [n2_4]
-[n2_3] receives [n2]
-[n_3] receives [n3]
-[n3_3] receives [n]
+STATUS = PhraseType.new(<<-__
+shamed
+shaken
+perturbed
+looks hopeless
+jubilant
+unfazed
+discredited
+disproven
+overturned
+__
+)
+
+VERB = PhraseType.new(<<-__
+picket
+frame
+veto
+elect
+pass
+miss
+neglect
+defy
+flaunt
+inspire
+track
+require
+debut
+talk down
+rock
+exclude
+include
+leave out
+talk up
+diss
+defuse 
+out
+bankroll
+disavow
+crash
+kidnap
+steal
+witness
+watch
+ditch
+rescue
+spark
+receive
 predict
 foretell
 foreshadow
@@ -310,6 +340,7 @@ scratch
 float
 drift
 tank
+request
 enter
 land
 wing
@@ -354,15 +385,70 @@ batter
 __
 )
 
-ADVERB = PhraseType.new(<<-__ADVERB__
-still
-never
-always
-__ADVERB__
+FULL_NAME = PhraseType.new(<<-__
+[FIRST_NAME] [LAST_NAME]
+__
 )
 
+FIRST_NAME = PhraseType.new(<<-__
+David
+Gavin
+Joanna
+Anna
+Don
+Donny
+Dolly
+Frank
+Franco
+Mario
+Luigi
+Mike
+Jerry
+Jeff
+Josh
+Jesus
+James
+Marco
+Christian
+George
+Joe
+Alex
+Steven
+Steve
+Dave
+Stephen
+Stephanie
+Scott
+Judy
+Thomas
+Tom
+__
+)
+
+LAST_NAME = PhraseType.new(<<-__
+Bowie
+Krug
+Brown
+Klemmer
+Walker
+Parton
+Franco
+Mario
+Newsom
+Jaffa
+McClure
+McCormick
+__
+)
+
+QUOTATIVE_PHRASE = PhraseType.new(<<-__
+[quotative] [n_3]
+__
+)
 
 QUOTATIVE = PhraseType.new(<<-__QUOTATIVE__
+laments
+wails
 tells
 reveals
 says
@@ -375,187 +461,10 @@ moans
 __QUOTATIVE__
 )
 
-OBJECT = PhraseType.new(<<-__OBJECT__
-[noun]
-__OBJECT__
-)
-
-SUBJECT = PhraseType.new(<<-__SUBJECT__
-[animate]
-__SUBJECT__
-)
-
-ANIMATE = PhraseType.new(<<-__ANIMATE__
-burglar
-thief
-mugger
-monk
-partisan
-butler
-chancellor
-wrestler
-dino
-hipster
-hippy
-king
-queen
-prince
-princess
-horse
-cow
-dingo
-baby
-senator
-mayor
-wannabe
-punk
-rapper
-fish
-clown
-actor
-duck
-tiger
-goat
-man
-dog
-wizard
-candidate
-president
-minister
-ambassador
-diplomat
-official
-caliph
-imam
-cardinal
-pope
-pig
-tourist
-vigilante
-weirdo
-__ANIMATE__
-)
-
-
-VERB = PhraseType.new(<<-__VERB__
-rock
-dissuade
-defuse
-out
-bankroll
-disavow
-crash
-kidnap
-steal
-witness
-watch
-ditch
-rescue
-spark
-predict
-foretell
-foreshadow
-stall
-decline
-dismiss
-ban
-strike
-back
-subpoena
-summon
-wring
-edge
-trounce
-trump
-drop
-demo
-unveil
-awake
-scratch
-float
-drift
-tank
-enter
-land
-wing
-get
-attack
-bash
-take
-face
-friend
-google
-book
-dish
-flame
-pork
-toast
-stab
-shank
-upend
-withhold
-open
-bank
-thrash
-whiff
-nudge
-dodge
-head
-lead
-awe
-shock
-create
-mastermind
-rout
-foreclose
-upset
-tax
-demand
-bomb
-firebomb
-fire
-jinx
-batter
-__VERB__
-)
-
-NOUN = PhraseType.new(<<-__NOUN__
-alliance
-comment
-plan
-plane
-parade
-software
-hiatus
-debate
-rumor
-affair
-hedge fund
-egg
-dope
-stock
-cheese
-lawyer
-trance
-circus
-drive
-pork
-streak
-toast
-beer
-float
-head
-rhyme
-sonnet
-play
-show
-suit
-skeleton
-bomb
-scam
-event
-steak
-__NOUN__
+INTRANSITIVE = PhraseType.new(<<-__
+whiffs
+retires
+__
 )
 
 class Inflection
@@ -576,6 +485,14 @@ SINGULAR = Inflection.new do |verb|
   end
 end
 
+PLURAL = Inflection.new do |noun|
+  if noun.end_with?('s', 'sh', 'ch', 'x')
+    noun + 'es'
+  else
+    noun + 's'
+  end
+end
+
 PAST = Inflection.new do |verb|
   if verb =~ /[aeiou][ptkdbg]$/
     verb = verb + verb[-1]
@@ -588,5 +505,5 @@ PAST = Inflection.new do |verb|
   end
 end
 
-puts "entropy: #{ROOT.entropy}"
+puts "entropy: #{(ROOT.entropy / 10e8).round(2)} billion possibilities"
 puts '------------'
