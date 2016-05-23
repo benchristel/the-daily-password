@@ -106,6 +106,10 @@ German
 French
 Chinese
 Romanian
+kombucha
+hipster
+labor
+union
 __
 )
 
@@ -116,8 +120,6 @@ classist
 racist
 sexist
 nationalist
-labor
-union
 liberal
 neocon
 socialist
@@ -126,8 +128,8 @@ republican
 international
 overseas
 cardigan
-kombucha
 spooky
+estranged
 doomed
 controversial
 challenged
@@ -173,13 +175,13 @@ accused
 doomed
 obsolete
 ancient
+visionary
 __
 )
 
 INANIMATE = PhraseType.new(<<-__
 plane
 software
-egg
 dope
 cheese
 pork
@@ -195,12 +197,15 @@ cello
 chair
 bourbon
 book
+shrub
+tree
 __
 )
 
 ANIMATE = PhraseType.new(<<-__
 complainant
 plaintiff
+outlaw
 jury
 head
 lawyer
@@ -228,6 +233,10 @@ cat
 cow
 wolf
 CEO
+expat
+terrorist
+wizard
+witch
 __
 )
 
@@ -267,6 +276,7 @@ debacle
 parade
 gift
 game
+backlash
 __
 )
 
@@ -330,6 +340,7 @@ subpoena
 summon
 wring
 edge
+hedge
 trounce
 trump
 drop
@@ -382,6 +393,7 @@ firebomb
 fire
 jinx
 batter
+scam
 __
 )
 
@@ -391,35 +403,35 @@ __
 )
 
 FIRST_NAME = PhraseType.new(<<-__
-David
-Gavin
-Joanna
+Alex
 Anna
+Christian
+Dave
+David
+Dolly
 Don
 Donny
-Dolly
-Frank
 Franco
-Mario
-Luigi
-Mike
-Jerry
-Jeff
-Josh
-Jesus
-James
-Marco
-Christian
+Frank
+Gavin
 George
+James
+Jeff
+Jerry
+Jesus
+Joanna
 Joe
-Alex
-Steven
-Steve
-Dave
-Stephen
-Stephanie
-Scott
+Josh
 Judy
+Luigi
+Marco
+Mario
+Mike
+Scott
+Stephanie
+Stephen
+Steve
+Steven
 Thomas
 Tom
 __
@@ -427,17 +439,17 @@ __
 
 LAST_NAME = PhraseType.new(<<-__
 Bowie
-Krug
 Brown
-Klemmer
-Walker
-Parton
 Franco
-Mario
-Newsom
 Jaffa
+Klemmer
+Krug
+Mario
 McClure
 McCormick
+Newsom
+Parton
+Walker
 __
 )
 
