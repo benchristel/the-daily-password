@@ -16,6 +16,15 @@ ROOT = PhraseType.new(<<-__ROOT__
 [animate] [verb.singular] [three_word_noun]
 [animate.plural] [verb] [three_word_noun]
 [three_word_phrase]; [who_cares]
+[three_word_phrase], [quotative_phrase]
+[three_word_phrase] with [two_word_noun]
+[three_word_phrase] on [two_word_noun]
+after [adjective] [abstract], [three_word_phrase]
+[three_word_phrase] after [adjective] [abstract]
+on [two_word_noun], [three_word_phrase]
+[last_name]: "[noun] [verb.singular] [noun]"
+[last_name]: "[noun.plural] [verb] [noun]"
+[last_name] calls [two_word_noun] "[two_word_noun]"
 __ROOT__
 )
 
@@ -127,6 +136,14 @@ labor
 union
 cardigan
 ninja
+baby
+Apple
+Microsoft
+Facebook
+Google
+Twitter
+Hawaiian
+Shakespeare
 __
 )
 
@@ -137,6 +154,7 @@ amorous
 ancient
 angry
 bad
+bald
 banned
 barren
 beard
@@ -150,19 +168,23 @@ convicted
 cracked
 democratic
 difficult
+domestic
 doomed
 dreaded
 eco-friendly
 estranged
 faceless
+famous
 fiery
 flaccid
 flaky
 foreign
+former
 fresh
 green
 hairy
 homeless
+ill-fated
 international
 land
 liberal
@@ -188,6 +210,7 @@ sustainable
 terminal
 tight
 toothy
+unlucky
 unruly
 unpopular
 viral
@@ -225,6 +248,7 @@ crystal
 shrub
 train
 tree
+sauce
 __
 )
 
@@ -293,11 +317,13 @@ circus
 claim
 court
 cult
+day
 debacle
 debate
 drive
 epidemic
 event
+festival
 float
 game
 game
@@ -313,7 +339,9 @@ plague
 plan
 play
 race
+reality
 religion
+ritual
 rumor
 scam
 show
@@ -363,13 +391,14 @@ crash
 create
 debut
 decline
-defuse 
+defuse
 defy
 demand
 demo
 disavow
 dish
 dismiss
+disrupt
 diss
 ditch
 dodge
@@ -396,11 +425,13 @@ head
 hedge
 include
 inspire
+interrupt
 jinx
 kidnap
 land
 lead
 mastermind
+menace
 miss
 neglect
 nudge
@@ -518,6 +549,7 @@ Barnes
 Bell
 Bennett
 Bowie
+Bowmer
 Brooks
 Brown
 Butler
@@ -540,11 +572,13 @@ Fisher
 Flores
 Foster
 Franco
+Friedman
 Garcia
 Gomez
 Gonzalez
 Gray
 Green
+Gupta
 Gutierrez
 Hall
 Hawking
@@ -559,7 +593,10 @@ Jenkins
 Johnson
 Jones
 Kelly
+Kim
 King
+Kingsley
+Khanna
 Klemmer
 Krug
 Lee
@@ -570,14 +607,17 @@ Mario
 Martin
 McClure
 McCormick
+McKenzie
 Miller
 Mitchell
 Moore
 Morales
+Morgan
 Morris
 Murphy
 Myers
 Nelson
+Newman
 Newsom
 Nguyen
 Ortiz
@@ -589,6 +629,7 @@ Peterson
 Phillips
 Powell
 Price
+Quinn
 Ramirez
 Reed
 Reyes
@@ -603,6 +644,7 @@ Sanchez
 Sanders
 Scott
 Shepard
+Simon
 Smith
 Stewart
 Sullivan
@@ -613,6 +655,8 @@ Thompson
 Torres
 Turner
 Walker
+Wallace
+Wallach
 Ward
 Watson
 White
@@ -621,12 +665,13 @@ Wilson
 Wood
 Wright
 Young
-martinez
+Martinez
 __
 )
 
 QUOTATIVE_PHRASE = PhraseType.new(<<-__
-[quotative] [n_3]
+[quotative] [last_name]
+[quotative] [animate]
 __
 )
 
@@ -642,6 +687,7 @@ insists
 alleges
 confesses
 moans
+states
 __QUOTATIVE__
 )
 
